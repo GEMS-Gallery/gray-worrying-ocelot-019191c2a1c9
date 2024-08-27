@@ -1,0 +1,10 @@
+type CryptoBlock = 
+ record {
+   change24h: int;
+   name: text;
+   price: nat;
+   symbol: text;
+ };
+service : {
+  getCryptoBlock: () -> (CryptoBlock) query;
+}
