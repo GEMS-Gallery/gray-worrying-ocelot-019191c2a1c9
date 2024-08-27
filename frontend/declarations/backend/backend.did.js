@@ -1,12 +1,14 @@
 export const idlFactory = ({ IDL }) => {
-  const CryptoBlock = IDL.Record({
-    'change24h' : IDL.Int,
-    'name' : IDL.Text,
-    'price' : IDL.Nat,
-    'symbol' : IDL.Text,
+  const BlogPost = IDL.Record({
+    'id' : IDL.Nat,
+    'title' : IDL.Text,
+    'content' : IDL.Text,
+    'author' : IDL.Text,
+    'timestamp' : IDL.Text,
   });
   return IDL.Service({
-    'getCryptoBlock' : IDL.Func([], [CryptoBlock], ['query']),
+    'getPost' : IDL.Func([IDL.Nat], [IDL.Opt(BlogPost)], ['query']),
+    'getPosts' : IDL.Func([], [IDL.Vec(BlogPost)], ['query']),
   });
 };
 export const init = ({ IDL }) => { return []; };

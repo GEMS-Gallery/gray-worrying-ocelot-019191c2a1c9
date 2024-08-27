@@ -1,10 +1,12 @@
-type CryptoBlock = 
+type BlogPost = 
  record {
-   change24h: int;
-   name: text;
-   price: nat;
-   symbol: text;
+   author: text;
+   content: text;
+   id: nat;
+   timestamp: text;
+   title: text;
  };
 service : {
-  getCryptoBlock: () -> (CryptoBlock) query;
+  getPost: (nat) -> (opt BlogPost) query;
+  getPosts: () -> (vec BlogPost) query;
 }
